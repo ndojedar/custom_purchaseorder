@@ -8,8 +8,8 @@
       <field name="arch" type="xml">
         <xpath expr="//div[@name='date_planned_div']" position="after">
           <field name="datos_entrega" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{'always_reload': True}"/>
-          <field name="produccion_estimada" attrs="{'invisible': [['forecast_id','=',False]]}"/>
-          <field name="pva_estimado" attrs="{'invisible': [['forecast_id','=',False]]}"/>
+          <field name="produccion_estimada" force_save="1"  readonly="1" attrs="{'invisible': [['forecast_id','=',False]]}"/>
+          <field name="pva_estimado" force_save="1"  readonly="1" attrs="{'invisible': [['forecast_id','=',False]]}"/>
         </xpath>
       </field>
     </record>
@@ -22,7 +22,7 @@
         <xpath expr="//field[@name='origin']" position="after">
           <field name="produccion_estimada" sum="Sum of Producción estimada" optional="show"/>
           <field name="pva_estimado" sum="Sum of Producción VA estimada" optional="show"/>
-        </xpath>        
+        </xpath>
       </field>
     </record>
   </data>
